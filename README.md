@@ -3,7 +3,27 @@
 This is an AI-powered web application that allows users to upload a ZIP file of a codebase or connect a public GitHub repository URL. Users can ask questions about the codebase and receive answers with file paths, line numbers, and code snippets as proof.
 
 ---
-## ▶️ How to Run Locally
+## Tech Stack & Tools Used
+
+1. Frontend
+- React (Vite)
+- Tailwind CSS
+
+2. Backend
+- Node.js
+- Express.js
+
+3. Database
+- MongoDB
+
+4. AI & Development Tools
+- Gemini Pro — used for development assistance
+- ChatGPT — used minimally for guidance
+- Postman — API testing
+- Visily AI — UI/UX design support
+
+  ---
+##  How to Run Locally
 
  1. Clone the repository
 
@@ -57,3 +77,24 @@ Create a `.env` file and add your API keys:
 - Background job processing for heavy tasks
 - Multi-user collaboration features
 - Advanced code analysis beyond retrieval-based answers
+
+---
+
+##  Implementation Notes
+
+This project was developed within a limited timeframe, and some pragmatic trade-offs were made to ensure a functional end-to-end system.
+
+- Code quality may not fully follow strict clean-code standards in all modules due to time constraints
+- Response time can be higher when using free-tier LLM services
+- Background processing states (e.g., embedding generation, LLM calls) are not fully reflected in the UI with advanced loading indicators
+- Some UI components were generated with AI assistance and then integrated manually
+
+  ---
+
+  ##  Future Improvements
+
+- Refactor codebase to fully align with clean code and modular architecture principles
+- Integrate higher-performance paid LLMs to reduce latency
+- Implement robust background job handling and progress indicators
+- Improve UI responsiveness during long-running operations
+- Reduce reliance on generated UI code and enhance custom design
