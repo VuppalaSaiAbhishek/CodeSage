@@ -27,7 +27,7 @@ This is an AI-powered web application that allows users to upload a ZIP file of 
 
  1. Clone the repository
 
-- git clone https://github.com/your-username/your-repo.git
+- git clone https://github.com/VuppalaSaiAbhishek/CodeSage
 - cd your-repo
 
  2. Install dependencies
