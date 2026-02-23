@@ -42,7 +42,7 @@ export default function SystemPage() {
   // Map the backend data to your UI icons
   const metricsConfig = [
     { id: 'backend', label: 'Backend API', icon: <Globe size={18} /> },
-    { id: 'vectorDb', label: 'Vector Database', icon: <Database size={18} /> },
+    { id: 'vectorDb', label: 'Database', icon: <Database size={18} /> },
     { id: 'aiEngine', label: 'AI Engine (OpenRouter)', icon: <Cpu size={18} /> },
   ];
 
