@@ -8,6 +8,7 @@ const CodeModel = require('../model/UploadModel');
 require("dotenv").config();
 const ProjectModel = require('../model/ProjectModel');
 const ChatMessageModel = require('../model/ChatMessage');
+const MODEL_NAME = process.env.MODEL_NAME;
 
 const upload = multer({ dest: 'uploads/' });
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
@@ -121,7 +122,7 @@ router.post('/github-upload', async (req, res) => {
         });
 
         const zipUrl = `https://github.com/${owner}/${repo}/archive/refs/heads/main.zip`;
-        console.log(`⏳ Downloading from GitHub: ${zipUrl}`);
+        console.log(`Downloading from GitHub: ${zipUrl}`);
 
         const response = await axios({ method: 'get', url: zipUrl, responseType: 'arraybuffer' });
         const zip = new AdmZip(Buffer.from(response.data));
@@ -197,10 +198,10 @@ router.post("/ask", async (req, res) => {
     const aiResponse = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "qwen/qwen3-vl-235b-a22b-thinking",
+        model: `${MODEL_NAME}`,
         max_tokens: 4096,
         messages: [
-          { role: "system", content: "You are an expert developer..." },
+          { role: "system", content: `You are an expert software engineer.Use the provided code context to answer questions.Always include:File name,Line numbers,location of the code.Give clear, accurate, and concise explanations.Prefer practical solutions and clean code.`},
           { role: "user", content: `Context:\n${contextText}\n\nQuestion: ${question}` }
         ]
       },
@@ -237,7 +238,6 @@ router.post("/ask", async (req, res) => {
     });
 
   } catch (error) {
-    // Check if the error happened during the AI call or before
     console.error("Critical Error at Step:", error.message);
     res.status(500).json({ error: "AI failed to respond.", details: error.message });
   }

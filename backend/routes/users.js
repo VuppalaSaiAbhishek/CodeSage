@@ -11,14 +11,16 @@ router.get('/history', async (req, res) => {
         const history = await Project.aggregate([
             { $sort: { createdAt: -1 } },
             { $limit: 10 },
-            { $sort: { createdAt: 1 } },
             {
                 $lookup: {
-                    from: "chatmessages",    
-                    localField: "_id",      
-                    foreignField: "projectId", 
-                    as: "messages"
-                }
+                from: "chatmessages",
+                let: { projectId: "$_id" },
+                pipeline: [
+                    { $match: { $expr: { $eq: ["$projectId", "$$projectId"] } } },
+                    { $sort: { createdAt: 1 } } 
+                ],
+                as: "messages"
+            }
             },
         ]);
 
