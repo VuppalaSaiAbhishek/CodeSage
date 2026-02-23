@@ -98,3 +98,48 @@ This project was developed within a limited timeframe, and some pragmatic trade-
 - Implement robust background job handling and progress indicators
 - Improve UI responsiveness during long-running operations
 - Reduce reliance on generated UI code and enhance custom design
+
+  ---
+
+  ##  Processing Flow
+
+1. The user uploads a ZIP file or provides a public repository URL.  
+
+2. The system extracts and processes the code files.  
+
+3. The extracted code is divided into smaller chunks (such as functions or logical sections).  
+   Each chunk is converted into an embedding — a numerical representation of the text’s meaning —  
+   and stored in the database along with its file path and location for later retrieval.  
+
+4. When a user asks a question, the system generates an embedding for the query.  
+
+5. Relevant code sections are retrieved using similarity search by comparing the query embedding  
+   with the stored code embeddings in the database.  
+
+6. Only the most relevant code chunks are sent to the LLM to generate the final answer,  
+   instead of sending the entire codebase. This reduces token usage, lowers cost,  
+   and improves response efficiency.
+
+   ---
+
+##  Performance Note
+
+When a ZIP file or repository is uploaded, the system first processes the files, generates embeddings, and stores them in the database.  
+
+When a question is asked, the system retrieves relevant code segments, performs similarity matching, and then sends the most relevant results to the LLM to generate a response.
+
+Because of this processing workflow, initial responses may take a few seconds, especially when using free-tier LLM services.
+
+Performance optimizations and improved UI feedback for long-running operations are planned for future updates.
+
+---
+
+##  Important Note
+
+This application uses free-tier LLM services. During peak usage times, responses may take longer or occasionally fail due to service limits.
+
+If a response is not generated, please wait a few moments and try again.
+
+For persistent issues, you may contact the via email: vuppalasaiabhishek@gmail.com.
+
+Using a paid API version of the LLM would provide faster responses, higher reliability, and fewer rate limits compared to free-tier services.
