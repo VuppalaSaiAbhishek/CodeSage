@@ -2,6 +2,10 @@
 
 This is an AI-powered web application that allows users to upload a ZIP file of a codebase or connect a public GitHub repository URL. Users can ask questions about the codebase and receive answers with file paths, line numbers, and code snippets as proof.
 
+Live Application : https://codesage-app.netlify.app/
+
+Backend : https://codesage-0bk7.onrender.com
+
 ---
 ## Tech Stack & Tools Used
 
