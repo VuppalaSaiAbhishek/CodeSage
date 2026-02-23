@@ -13,7 +13,7 @@ export default function ChatModal({ isOpen, onClose, projectId }) {
     setIsAsking(true);
      console.log(query);
     try {
-      const res = await fetch('https://code-sage-be.onrender.com/ask', {
+      const res = await fetch('https://codesage-0bk7.onrender.com/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: query ,projectId:projectId.id })

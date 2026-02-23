@@ -12,7 +12,7 @@ export default function SystemPage() {
   const fetchSystemHealth = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://code-sage-be.onrender.com/users/system-status');
+      const response = await fetch('https://codesage-0bk7.onrender.com/users/system-status');
       const data = await response.json();
       setSystemData(data.systems);
       

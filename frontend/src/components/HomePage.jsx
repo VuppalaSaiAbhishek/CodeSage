@@ -20,12 +20,12 @@ export default function HomePage() {
       if (type === 'zip') {
         const formData = new FormData();
         formData.append('file', selectedFile);
-        response = await fetch('https://code-sage-be.onrender.com/upload', {
+        response = await fetch('https://codesage-0bk7.onrender.com/upload', {
           method: 'POST',
           body: formData,
         });
       } else {
-        response = await fetch('https://code-sage-be.onrender.com/github-upload', {
+        response = await fetch('https://codesage-0bk7.onrender.com/github-upload', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ githubUrl: githubUrl }),
@@ -65,13 +65,36 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       <section className="pt-20 pb-12 px-4">
-        <div className="container mx-auto text-center max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-black mb-6 leading-[0.9]">
-            TALK TO YOUR <br />
-            <span className="italic underline decoration-slate-200 underline-offset-8">CODEBASE.</span>
-          </h1>
-        </div>
-      </section>
+  <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center justify-between gap-8">
+    
+    {/* Main Heading Area */}
+    <div className="text-left max-w-2xl">
+      <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-black leading-[0.9]">
+        TALK TO YOUR <br />
+        <span className="italic underline decoration-slate-200 underline-offset-8">CODEBASE.</span>
+      </h1>
+    </div>
+
+    {/* Small Side Notice Box */}
+    <div className="max-w-xs p-3 text-amber-800 border-l-2 border-amber-400 rounded bg-amber-50 shadow-sm" role="alert">
+        <p className="text-sm">
+          <span className="font-bold uppercase mr-2">Notice:</span> 
+          We are utilizing <span className="font-semibold text-amber-900">free LLM services and embeddings</span>. 
+          Please be patient as processing might take some time. 
+          For further technical details, view the 
+          <a 
+            href="https://github.com/VuppalaSaiAbhishek/CodeSage/blob/master/README.md" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="ml-1 font-bold underline hover:text-amber-600 transition-colors"
+          >
+            README on GitHub.
+          </a>
+        </p>
+    </div>
+
+  </div>
+</section>
 
       <section className="pb-20 px-4">
         <div className="container mx-auto max-w-5xl">
@@ -151,6 +174,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+
+
 
       <ChatModal 
         isOpen={isModalOpen} 

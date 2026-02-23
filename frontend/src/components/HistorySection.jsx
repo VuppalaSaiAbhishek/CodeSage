@@ -14,7 +14,7 @@ export default function SessionHistoryPage() {
     const fetchHistory = async () => {
       try {
         // Ensure this URL matches your new hierarchy route
-        const res = await axios.get(`https://code-sage-be.onrender.com/users/history`);
+        const res = await axios.get(`https://codesage-0bk7.onrender.com/users/history`);
         console.log(res.data);
         if (res.data.success) {
           setHistory(res.data.data || res.data.history || []);
