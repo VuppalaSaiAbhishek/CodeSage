@@ -3,7 +3,36 @@
 This is an AI-powered web application that allows users to upload a ZIP file of a codebase or connect a public GitHub repository URL. Users can ask questions about the codebase and receive answers with file paths, line numbers, and code snippets as proof.
 
 ---
+## ▶️ How to Run Locally
 
+ 1. Clone the repository
+
+- git clone https://github.com/your-username/your-repo.git
+- cd your-repo
+
+ 2. Install dependencies
+
+- npm install
+
+ 3. Configure environment variables
+
+Create a `.env` file and add your API keys:
+
+- OPENAI_API_KEY=your_key_here
+- DATABASE_URL=your_database_url
+
+ 4. Start the backend server
+
+- npm start
+
+ 5. Start the frontend
+
+-npm run dev
+
+6. Open in browser
+
+
+---
 
 ## What Is Done
 
